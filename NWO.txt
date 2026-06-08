@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NOCTYRA ARCHIVE TERMINAL</title>
+
+<style>
+body {
+    margin: 0;
+    background: #050607;
+    color: #c8d2c8;
+    font-family: monospace;
+    overflow: hidden;
+}
+
+#terminal {
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    background: radial-gradient(circle at center, #0a0f0c, #050607);
+}
+
+#header {
+    color: #7cf7b2;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+#output {
+    height: 75vh;
+    overflow-y: auto;
+    padding-right: 10px;
+    white-space: pre-wrap;
+    line-height: 1.4;
+}
+
+#inputLine {
+    display: flex;
+    margin-top: 10px;
+}
+
+#prompt {
+    color: #7cf7b2;
+    margin-right: 10px;
+}
+
+#cmd {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #c8d2c8;
+    font-family: monospace;
+}
+
+/* File formatting */
+.file {
+    border-left: 2px solid #2d6a4f;
+    padding-left: 10px;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+.file:hover {
+    background: rgba(124,247,178,0.05);
+}
+
+.redacted {
+    color: #ff4d4d;
+}
+
+.warning {
+    color: #ffcc66;
+}
+</style>
+</head>
+
+<body>
+
+<div id="terminal">
+
+<div id="header">
+NOCTYRA ARCHIVE TERMINAL // ACCESS NODE: UNVERIFIED // OBSERVATION STATE: ACTIVE
+</div>
+
+<div id="output"></div>
+
+<div id="inputLine">
+    <span id="prompt">></span>
+    <input id="cmd" autocomplete="off" />
+</div>
+
+</div>
+
+<audio id="pageSound" src="page-turn.mp3"></audio>
+
+<script>
+const files = {
+"noctyra_01": `
+FILE: NOCTYRA OBSERVATION LOG 01
+
+STATUS: PARTIALLY REDACTED
+
+Containment structure remains stable.
+
+Exposure events involving “Knowledge” continue to produce unpredictable cognitive variance in Gensvara Kin subjects.
+
+WARNING:
+Repeated observation correlates with memory fragmentation and identity drift.
+`,
+
+"kin_divergence": `
+FILE: KIN LINEAGE DIVERGENCE REPORT
+
+Virelia Kin: structured cognition, ritual stability.
+Verdira Kin: adaptive cognition, high pattern sensitivity.
+Valenari Kin: elevated tracking instinct, aggressive response bias.
+
+NOTE:
+Cross-lineage offspring exhibit non-standard predictive anomalies.
+Classification: UNRESOLVED
+`,
+
+"tree_observation": `
+FILE: TREE OBSERVATION RECORD
+
+ENTITY: UNCLASSIFIED ARBORIAL NODE
+
+Findings:
+- fruit coloration defies botanical classification models
+- fauna avoidance radius detected
+- intentional human markings confirmed
+
+REDACTION NOTICE:
+Reference to carving event has been sealed by Noctyra directive.
+`
+};
+
+function write(text) {
+    const out = document.getElementById("output");
+    out.innerText += "\n" + text;
+    out.scrollTop = out.scrollHeight;
+}
+
+function boot() {
+    write("INITIALIZING NOCTYRA ARCHIVE TERMINAL...");
+    write("LINKING OBSERVATION NODE...");
+    write("STATUS: LIMITED ACCESS GRANTED");
+    write("\nCOMMANDS:");
+    write("- LIST");
+    write("- OPEN <file_id>");
+    write("- CLEAR");
+    write("- HELP");
+}
+
+function listFiles() {
+    write("\nREGISTERED FILES:");
+    for (let key in files) {
+        write(" > " + key);
+    }
+}
+
+function openFile(id) {
+    const sound = document.getElementById("pageSound");
+    sound.currentTime = 0;
+    sound.play();
+
+    if (!files[id]) {
+        write("\nACCESS DENIED // FILE NOT FOUND");
+        return;
+    }
+
+    write("\nOPENING FILE: " + id);
+    write("--------------------------------");
+    write(files[id]);
+    write("--------------------------------");
+}
+
+function clearScreen() {
+    document.getElementById("output").innerText = "";
+}
+
+function help() {
+    write("\nCOMMAND REFERENCE:");
+    write("LIST            - show archive index");
+    write("OPEN <id>       - access file");
+    write("CLEAR           - reset terminal view");
+}
+
+document.getElementById("cmd").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        const input = this.value.trim();
+        this.value = "";
+
+        if (!input) return;
+
+        write("\n> " + input);
+
+        const args = input.split(" ");
+        const cmd = args[0].toLowerCase();
+
+        if (cmd === "list") listFiles();
+        else if (cmd === "open") openFile(args[1]);
+        else if (cmd === "clear") clearScreen();
+        else if (cmd === "help") help();
+        else write("UNKNOWN COMMAND");
+    }
+});
+
+boot();
+</script>
+
+</body>
+</html>
