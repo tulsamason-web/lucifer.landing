@@ -69,21 +69,6 @@ h1 {
 }
 
 /* Quill placeholder */
-.quill {
-  width: 120px;
-  height: 120px;
-  bottom: 40px;
-  left: 40px;
-  background: rgba(255,255,255,0.08);
-  border: 1px dashed rgba(255,255,255,0.2);
-}
-
-/* Ink placeholder */
-.ink {
-  width: 90px;
-  height: 90px;
-  bottom: 60px;
-  right: 60px;
-  background: rgba(255,255,255,0.08);
-  border: 1px dashed rgba(255,255,255,0.2);
+.quill, .ink {
+  display: none;
 } 
