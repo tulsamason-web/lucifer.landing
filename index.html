@@ -1,116 +1,26 @@
-
-</<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>NOCTYRA ARCHIVE NODE</title>
+  <meta charset="UTF-8">
+  <title>My Writer Desk Site</title>
 
-<style>
-body {
-    margin: 0;
-    background: #050607;
-    color: #c8d2c8;
-    font-family: monospace;
-}
-
-#terminal {
-    padding: 30px;
-}
-
-.header {
-    color: #7cf7b2;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-}
-
-.section {
-    border-left: 2px solid #2d6a4f;
-    padding: 10px 15px;
-    margin: 15px 0;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.section:hover {
-    background: rgba(124,247,178,0.08);
-}
-
-.locked {
-    color: #ffcc66;
-}
-
-.hidden {
-    display: none;
-}
-
-.fileView {
-    margin-top: 20px;
-    padding: 15px;
-    border: 1px solid #2d6a4f;
-    white-space: pre-wrap;
-}
-</style>
+  <!-- This is where your CSS connects -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="terminal">
+  <div class="desk">
 
-<div class="header">
-NOCTYRA ARCHIVE NODE // ACCESS: LIMITED // OBSERVATION ACTIVE
-</div>
+    <div class="decor quill"></div>
+    <div class="decor ink"></div>
 
-<div class="section" onclick="openFile('kin')">
-KIN RECORDS
-</div>
+    <main class="parchment">
+      <h1>Welcome</h1>
+      <p>Your content goes here.</p>
+    </main>
 
-<div class="section" onclick="openFile('noctyra')">
-NOCTYRA LOGS
-</div>
-
-<div class="section locked" onclick="openFile('tree')">
-RESTRICTED: ARBORIAL OBSERVATION
-</div>
-
-<div id="output" class="fileView hidden"></div>
-
-</div>
-
-<script>
-
-const files = {
-kin: `KIN RECORDS:
-
-- Virelia Kin: structured cognition
-- Verdira Kin: adaptive perception
-- Valenari Kin: tracking dominance patterns
-
-NOTE:
-Cross-lineage anomalies detected.`,
-noctyra: `NOCTYRA LOGS:
-
-Containment of Knowledge remains stable.
-
-Observation increases instability risk in Gensvara Kin.
-
-Proceed with caution.`,
-tree: `RESTRICTED FILE:
-
-ENTITY: ARBORIAL NODE
-
-Status: sealed by Noctyra directive
-
-Reference to “carving event” removed from public access.`
-};
-
-function openFile(id) {
-    const out = document.getElementById("output");
-    out.classList.remove("hidden");
-    out.innerText = files[id] || "ACCESS DENIED";
-}
-
-</script>
+  </div>
 
 </body>
-</html>body>
 </html>
