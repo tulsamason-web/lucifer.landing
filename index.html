@@ -1,113 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noctyra Archive</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>Heaven's Crater Archive</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div class="desk">
+<div id="dust-layer"></div>
 
-    <div class="candle-glow"></div>
+<audio id="ambient" loop>
+    <source src="assets/audio/ambience.mp3" type="audio/mp3">
+</audio>
 
-    <div class="dust dust1"></div>
-    <div class="dust dust2"></div>
-    <div class="dust dust3"></div>
-    <div class="dust dust4"></div>
+<audio id="pageSound">
+    <source src="assets/audio/page-turn.mp3" type="audio/mp3">
+</audio>
 
-    <div class="quill"></div>
-    <div class="inkwell"></div>
 
-    <main class="parchment">
+<header>
 
-        <header class="archive-header">
+<h1>Heaven's Crater Archive</h1>
 
-            <h1>Noctyra Archive</h1>
+<button id="soundToggle">
+🔇 Ambient
+</button>
 
-            <div class="subtitle">
-                Observation Access: Limited
-            </div>
+</header>
 
-            <div class="archive-note">
-                Several records have been recovered from the desk of an unknown author.
-                Their origin remains disputed.
-            </div>
 
-        </header>
 
-        <section class="record-section">
+<main>
 
-            <h2>Recovered Documents</h2>
 
-            <div class="record-grid">
+<section id="desk">
 
-                <a href="#" class="record-card">
-                    <div class="record-id">Record I</div>
-                    <div class="record-title">
-                        The First Observation
-                    </div>
-                    <div class="record-desc">
-                        Earliest known account of the phenomenon.
-                    </div>
-                </a>
 
-                <a href="#" class="record-card">
-                    <div class="record-id">Record II</div>
-                    <div class="record-title">
-                        Void Journal
-                    </div>
-                    <div class="record-desc">
-                        Personal notes recovered from a damaged manuscript.
-                    </div>
-                </a>
+<img 
+class="desk-image"
+src="assets/images/desk.webp"
+alt="Ancient wooden writing desk">
 
-                <a href="#" class="record-card">
-                    <div class="record-id">Record III</div>
-                    <div class="record-title">
-                        Luxifer Manuscript
-                    </div>
-                    <div class="record-desc">
-                        Fragmentary text with uncertain authorship.
-                    </div>
-                </a>
 
-                <a href="#" class="record-card">
-                    <div class="record-id">Record IV</div>
-                    <div class="record-title">
-                        Unverified Testimony
-                    </div>
-                    <div class="record-desc">
-                        Source reliability remains under review.
-                    </div>
-                </a>
+<div class="desk-items">
 
-            </div>
 
-        </section>
+<div 
+class="stack"
+data-file="valenari">
 
-        <section class="desk-notes">
+<img src="assets/images/parchment.webp">
 
-            <h2>Desk Notes</h2>
-
-            <p>
-                Not every record agrees with the others.
-                Some appear to contradict established accounts.
-            </p>
-
-            <p>
-                Whether these inconsistencies are errors,
-                deceptions, or clues remains unknown.
-            </p>
-
-        </section>
-
-    </main>
+<p>Valenari Records</p>
 
 </div>
 
+
+
+<div 
+class="stack"
+data-file="luxifer">
+
+<img src="assets/images/parchment.webp">
+
+<p>Luxifer Archives</p>
+
+</div>
+
+
+
+<div 
+class="stack"
+data-file="sovenna">
+
+<img src="assets/images/parchment.webp">
+
+<p>Sovenna Journals</p>
+
+</div>
+
+
+
+<div 
+class="stack"
+data-file="knowledge">
+
+<img src="assets/images/parchment.webp">
+
+<p>The Bound Knowledge</p>
+
+</div>
+
+
+
+<div 
+class="stack"
+data-file="timeline">
+
+<img src="assets/images/parchment.webp">
+
+<p>Timeline</p>
+
+</div>
+
+
+
+</div>
+
+
+<img 
+class="quill"
+src="assets/images/quill.webp">
+
+
+<div class="candle">
+
+<img src="assets/images/candle.webp">
+
+</div>
+
+
+</section>
+
+
+
+
+<section id="archive" class="hidden">
+
+
+<div class="book">
+
+
+<button id="close">
+✕ Close Archive
+</button>
+
+
+
+<div id="pages">
+
+
+<h2 id="title">
+Archive
+</h2>
+
+
+<div id="content">
+
+Open a record.
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="controls">
+
+<button id="prev">
+← Previous
+</button>
+
+
+<button id="next">
+Next →
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+</main>
+
+
+<script src="script.js"></script>
+
 </body>
-</html> 
+
+</html>
+    
