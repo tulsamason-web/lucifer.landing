@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+<title>Timeline | Heaven's Crater</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+
+<body>
+
+
+<div class="page">
+
+
+<h1>Timeline Archive</h1>
+
+
+<div id="timeline">
+
+Searching history...
+
+</div>
+
+
+
+<a href="../index.html">
+Return to Desk
+</a>
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+fetch("../data/timeline.json")
+
+
+.then(response => response.json())
+
+
+.then(data => {
+
+
+let box =
+document.getElementById("timeline");
+
+
+box.innerHTML="";
+
+
+
+data.forEach(event => {
+
+
+box.innerHTML += `
+
+
+<h2>
+${event.era}
+</h2>
+
+
+<p>
+${event.text}
+</p>
+
+
+<hr>
+
+
+`;
+
+
+});
+
+
+});
+
+
+
+</script>
+
+
+
+</body>
+
+
+</html>
