@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Characters | Heaven's Crater</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+<h1>Character Archive</h1>
+
+
+<div id="characters">
+
+Loading records...
+
+</div>
+
+
+<a href="../index.html">
+Return to Desk
+</a>
+
+
+</div>
+
+
+
+<script>
+
+
+fetch("../data/characters.json")
+
+.then(response => response.json())
+
+.then(data => {
+
+
+let box =
+document.getElementById("characters");
+
+
+box.innerHTML = "";
+
+
+data.forEach(character => {
+
+
+box.innerHTML += `
+
+<h2>${character.name}</h2>
+
+<h3>${character.role}</h3>
+
+<p>
+${character.text}
+</p>
+
+<hr>
+
+`;
+
+
+});
+
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
