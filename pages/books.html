@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Books | Heaven's Crater</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+<h1>The Six Archives</h1>
+
+
+<div id="books">
+
+Opening manuscripts...
+
+</div>
+
+
+<a href="../index.html">
+Return to Desk
+</a>
+
+
+</div>
+
+
+
+
+<script>
+
+
+fetch("../data/books.json")
+
+.then(response => response.json())
+
+.then(data => {
+
+
+let box =
+document.getElementById("books");
+
+
+box.innerHTML="";
+
+
+data.forEach(book => {
+
+
+box.innerHTML += `
+
+
+<h2>
+${book.title}
+</h2>
+
+
+<p>
+${book.text}
+</p>
+
+
+<hr>
+
+
+`;
+
+
+});
+
+
+});
+
+
+</script>
+
+
+
+</body>
+
+</html>
